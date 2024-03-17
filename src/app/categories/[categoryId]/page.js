@@ -3,9 +3,8 @@ import { getDuas } from "@/app/utils/Duas";
 import React from "react";
 
 const page = async ({ params }) => {
-  // console.log(params.categoryId);
   const dous = await getDuas(params.categoryId);
-  // console.log(dous);
+ 
 
   return (
     <div>

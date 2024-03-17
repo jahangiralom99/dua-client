@@ -2,11 +2,9 @@ import React from "react";
 import { IoIosSearch } from "react-icons/io";
 import AllCategory from "../Components/AllCategory/AllCategory";
 import { getCategory } from "../utils/category";
-import { getSubCategory } from "../utils/SubCategory";
 
 const CategoriesLayout = async ({ children }) => {
   const data = await getCategory();
-  const subCategory = await getSubCategory();
 
 
   return (
@@ -24,11 +22,10 @@ const CategoriesLayout = async ({ children }) => {
             <IoIosSearch className="text-2xl absolute top-7 left-6 text-gray-400"></IoIosSearch>
           </div>
           <div className="p-3 md:h-96 overflow-y-scroll scrollbar-thin">
-            {data.map((category, idx) => (
+            {data?.map((category, idx) => (
               <AllCategory key={category.id}
                 category={category}
                 open={category.id == idx + 1}
-                subCategory={subCategory}
               ></AllCategory>
             ))}
             
